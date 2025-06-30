@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TechAlchemist Solutions</title>
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text: #ccd6f6;
+            --text-secondary: #8892b0;
+            --highlight: #1e90ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Calibre', 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: var(--highlight);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #1a7fdd;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.3);
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            height: 70vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(23, 42, 69, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><path d="M400,400 Q500,300 600,400 T800,400" stroke="%2364ffda" stroke-width="2" fill="none"/><path d="M400,400 Q300,500 400,600 T400,800" stroke="%2364ffda" stroke-width="2" fill="none"/><path d="M400,400 Q500,500 600,400 T800,400" stroke="%2364ffda" stroke-width="2" fill="none"/><path d="M400,400 Q300,300 400,200 T400,0" stroke="%2364ffda" stroke-width="2" fill="none"/><circle cx="400" cy="400" r="150" fill="%2364ffda" opacity="0.1"/></svg>') center/contain no-repeat;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .about-hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .about-hero-title span {
+            color: var(--accent);
+        }
+
+        .about-hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Founding Story Section */
+        .founding-story {
+            background-color: var(--secondary);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .story-milestones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .milestone {
+            padding: 30px;
+            background-color: var(--primary);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--accent);
+            transition: height 0.3s ease;
+        }
+
+        .milestone:hover::before {
+            height: 100%;
+        }
+
+        .milestone-year {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .milestone-event {
+            font-size: 1.1rem;
+        }
+
+        /* Founders Section */
+        .founders {
+            position: relative;
+        }
+
+        .founders::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><rect width="800" height="800" fill="none"/><path d="M100,100 Q250,50 400,100 T700,100" stroke="%2364ffda" stroke-width="2" fill="none" opacity="0.1"/><path d="M100,300 Q250,250 400,300 T700,300" stroke="%2364ffda" stroke-width="2" fill="none" opacity="0.1"/><path d="M100,500 Q250,450 400,500 T700,500" stroke="%2364ffda" stroke-width="2" fill="none" opacity="0.1"/></svg>') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
+        }
+
+        .founder-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .founder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .founder-header {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 5rem;
+            font-weight: 700;
+        }
+
+        .founder-content {
+            padding: 40px;
+        }
+
+        .founder-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .founder-title {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .founder-bio {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .founder-expertise {
+            margin-bottom: 30px;
+        }
+
+        .expertise-title {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .expertise-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .expertise-item {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Engineering Principles Section */
+        .engineering-principles {
+            background-color: var(--secondary);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .principle-card {
+            background-color: var(--primary);
+            padding: 40px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--accent);
+            transition: height 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .principle-card:hover::before {
+            height: 100%;
+        }
+
+        .principle-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .principle-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .principle-desc {
+            color: var(--text-secondary);
+        }
+
+        /* CTA Section */
+        .about-cta {
+            text-align: center;
+        }
+
+        .about-cta .section-title {
+            margin-bottom: 20px;
+        }
+
+        .about-cta .section-subtitle {
+            margin: 0 auto 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .about-hero-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-hero::before {
+                width: 100%;
+                opacity: 0.2;
+            }
+
+            .about-hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .about-hero-description {
+                margin: 0 auto 40px;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .about-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .about-hero-title {
+                font-size: 2rem;
+            }
+
+            .about-hero-description {
+                font-size: 1rem;
+            }
+
+            .milestone {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    
+<!-- Next-Gen Header Component -->
+<header class="neo-header">
+  <div class="cyber-container">
+    <!-- Holographic Logo -->
+    <div class="holographic-logo">
+      <div class="logo-core">
+        <div class="particle-ring">
+          <div class="particle" style="--i:1"></div>
+          <div class="particle" style="--i:2"></div>
+          <div class="particle" style="--i:3"></div>
+          <div class="particle" style="--i:4"></div>
+          <div class="particle" style="--i:5"></div>
+          <div class="particle" style="--i:6"></div>
+        </div>
+        <span class="logo-pulse"></span>
+      </div>
+      <div class="logo-text">
+        <span class="logo-main">TECH</span>
+        <span class="logo-accent">ALCHEMIST</span>
+      </div>
+    </div>
+
+    <!-- Cyber Navigation -->
+    <nav class="cyber-nav">
+      <div class="nav-grid">
+
+           <a href="home.html" class="nav-item">
+          <span class="nav-icon">🧭</span>
+
+          <span class="nav-label">Home</span>
+          <span class="nav-underline"></span>
+        </a>
+        
+        <a href="services.html" class="nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Services</span>
+          <span class="nav-underline"></span>
+        </a>
+     
+        <a href="about.html" class="nav-item">
+          <span class="nav-icon">🔬</span>
+          <span class="nav-label">About</span>
+          <span class="nav-underline"></span>
+        </a>
+        <a href="contact.html" class="nav-item cta-glow">
+          <span class="nav-icon">🚀</span>
+          <span class="nav-label">Contact</span>
+          <span class="nav-underline"></span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Mobile Toggle (Holographic) -->
+    <button class="holographic-toggle" aria-label="Menu">
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <span class="toggle-line"></span>
+      <div class="toggle-halo"></div>
+    </button>
+  </div>
+
+  <!-- Active Navigation Indicator -->
+  <div class="cyber-indicator"></div>
+</header>
+
+<style>
+:root {
+  --primary: #0a192f;
+  --secondary: #172a45;
+  --accent: #64ffda;
+  --neon: #00f7ff;
+  --text: #ccd6f6;
+  --text-secondary: #8892b0;
+}
+
+/* Core Header Styles */
+.neo-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 25, 47, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cyber-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* Holographic Logo */
+.holographic-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.logo-core {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.particle-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate 12s linear infinite;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--neon);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
+  opacity: 0.8;
+}
+
+.particle:nth-child(1) { transform: rotate(60deg) translate(25px) rotate(-60deg); }
+.particle:nth-child(2) { transform: rotate(120deg) translate(25px) rotate(-120deg); }
+.particle:nth-child(3) { transform: rotate(180deg) translate(25px) rotate(-180deg); }
+.particle:nth-child(4) { transform: rotate(240deg) translate(25px) rotate(-240deg); }
+.particle:nth-child(5) { transform: rotate(300deg) translate(25px) rotate(-300deg); }
+.particle:nth-child(6) { transform: rotate(360deg) translate(25px) rotate(-360deg); }
+
+.logo-pulse {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  animation: pulse 2s infinite alternate;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-main {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+
+.logo-accent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Cyber Navigation */
+.cyber-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 1.5rem;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover .nav-underline {
+  width: 100%;
+}
+
+.nav-item:hover .nav-icon {
+  transform: translateY(-5px);
+}
+
+.nav-item:hover .nav-label {
+  color: var(--accent);
+}
+
+.cta-glow .nav-label {
+  color: var(--neon);
+  text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.cta-glow:hover {
+  filter: drop-shadow(0 0 8px var(--neon));
+}
+
+/* Holographic Toggle */
+.holographic-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.toggle-line {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--text);
+  margin: 6px auto;
+  transition: all 0.3s ease;
+}
+
+.toggle-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--neon);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 15px var(--neon);
+}
+
+.holographic-toggle:hover .toggle-halo {
+  opacity: 0.3;
+}
+
+/* Cyber Indicator */
+.cyber-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: var(--neon);
+  box-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cyber-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: var(--primary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .nav-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .nav-item {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+  }
+
+  .nav-underline {
+    display: none;
+  }
+
+  .holographic-toggle {
+    display: block;
+  }
+
+  .cyber-nav.active {
+    right: 0;
+  }
+
+  .holographic-toggle.active .toggle-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .holographic-toggle.active .toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .holographic-toggle.active .toggle-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .holographic-toggle.active .toggle-halo {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-container {
+    padding: 0 1rem;
+  }
+
+  .logo-main {
+    font-size: 1.2rem;
+  }
+
+  .logo-accent {
+    font-size: 0.7rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.holographic-toggle');
+  const nav = document.querySelector('.cyber-nav');
+  
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    nav.classList.toggle('active');
+  });
+
+  // Update cyber indicator position
+  const navItems = document.querySelectorAll('.nav-item');
+  const indicator = document.querySelector('.cyber-indicator');
+  
+  function updateIndicator(el) {
+    if (!el) return;
+    const { left, width } = el.getBoundingClientRect();
+    const containerLeft = document.querySelector('.cyber-container').getBoundingClientRect().left;
+    indicator.style.width = `${width}px`;
+    indicator.style.left = `${left - containerLeft}px`;
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('mouseenter', () => updateIndicator(item));
+    item.addEventListener('click', () => updateIndicator(item));
+  });
+
+  // Initialize indicator on first item
+  if (navItems.length > 0) {
+    updateIndicator(navItems[0]);
+  }
+});
+</script>
+
+
+
+
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">Engineering <span>Excellence</span> by Design</h1>
+                <p class="about-hero-description">
+                    TechAlchemist Solutions was founded by two senior engineers who shared a common frustration 
+                    with the state of software development - too much focus on speed, not enough on engineering 
+                    rigor. We're changing that.
+                </p>
+                <a href="#founders" class="btn btn-primary">Meet The Founders</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founding Story Section -->
+    <section class="founding-story">
+        <div class="container">
+            <h2 class="section-title">Our Origin Story</h2>
+            <p class="section-subtitle">
+                From shared frustrations to building a different kind of engineering firm
+            </p>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <p>
+                        In 2024, Sam Kilonzo (CEO) and Daniel Muumbi (CTO) founded TechAlchemist Solutions 
+                        with a singular mission: to bring real engineering discipline to software development. 
+                        After years at Fortune 500 tech companies witnessing the same patterns of technical 
+                        debt accumulation and short-term thinking, they decided to build an alternative.
+                    </p>
+                    <p>
+                        The name "TechAlchemist" reflects our philosophy - we combine the art of software 
+                        craftsmanship with the science of engineering principles. Unlike traditional alchemists 
+                        who sought to turn lead into gold, we transform complex business problems into elegant, 
+                        scalable solutions through applied computer science.
+                    </p>
+                    <p>
+                        What began as two engineers working on challenging projects has grown into a respected 
+                        engineering practice, but we've maintained our founding commitment to technical excellence 
+                        over growth for growth's sake. Every system we architect bears the hallmark of our 
+                        engineering-first approach.
+                    </p>
+                </div>
+                
+                <div class="story-visual">
+                    <div class="code-visualization">
+                        <div class="code-line"><span class="code-keyword">class</span> <span class="code-class">TechAlchemist</span> {</div>
+                        <div class="code-line">  <span class="code-keyword">constructor</span>(founders, mission) {</div>
+                        <div class="code-line">    <span class="code-this">this</span>.founders = [<span class="code-string">'Sam Kilonzo'</span>, <span class="code-string">'Daniel Muumbi'</span>];</div>
+                        <div class="code-line">    <span class="code-this">this</span>.mission = <span class="code-string">'Engineering excellence over short-term gains'</span>;</div>
+                        <div class="code-line">    <span class="code-this">this</span>.yearFounded = <span class="code-number">2023</span>;</div>
+                        <div class="code-line">  }</div>
+                        <div class="code-line"></div>
+                        <div class="code-line">  <span class="code-function">buildSystem</span>(requirements) {</div>
+                        <div class="code-line">    <span class="code-keyword">return</span> <span class="code-keyword">new</span> <span class="code-class">EngineeredSolution</span>(</div>
+                        <div class="code-line">      <span class="code-this">this</span>._applyComputerScience(requirements),</div>
+                        <div class="code-line">      <span class="code-this">this</span>._verifyFormally(),</div>
+                        <div class="code-line">      <span class="code-this">this</span>._optimizePerformance()</div>
+                        <div class="code-line">    );</div>
+                        <div class="code-line">  }</div>
+                        <div class="code-line">}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-milestones">
+                <div class="milestone">
+                    <div class="milestone-year">2023</div>
+                    <div class="milestone-event">Founded with first client project</div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-year">2024</div>
+                    <div class="milestone-event">Launched engineering practice</div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-year">2025</div>
+                    <div class="milestone-event">Expanded to 5 major clients</div>
+                </div>
+                <div class="milestone">
+                    <div class="milestone-year">Future</div>
+                    <div class="milestone-event">Engineering excellence at scale</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Leadership Team Section -->
+<section id="leadership" class="leadership">
+    <div class="container">
+        <h2 class="section-title">Leadership Team</h2>
+        <p class="section-subtitle">
+            Seasoned engineers driving technical excellence
+        </p>
+        
+        <div class="leadership-grid">
+            <!-- Team Member 1 -->
+            <div class="leader-card">
+                <div class="leader-avatar">
+                    <div class="avatar-placeholder">SK</div>
+                    <!-- <img src="sam-profile.jpg" alt="Sam Kilonzo" class="avatar-image"> -->
+                </div>
+                <div class="leader-info">
+                    <h3 class="leader-name">Sam Kilonzo</h3>
+                    <div class="leader-title">CEO & Principal Architect</div>
+                    <div class="leader-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="leader-card">
+                <div class="leader-avatar">
+                    <div class="avatar-placeholder">DM</div>
+                    <!-- <img src="daniel-profile.jpg" alt="Daniel Muumbi" class="avatar-image"> -->
+                </div>
+                <div class="leader-info">
+                    <h3 class="leader-name">Daniel Muumbi</h3>
+                    <div class="leader-title">CTO & Engineering Lead</div>
+                    <div class="leader-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter profile">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .leadership {
+        background-color: var(--secondary);
+    }
+    
+    .leadership-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .leader-card {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        background-color: rgba(100, 255, 218, 0.05);
+        padding: 25px;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    
+    .leader-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .leader-avatar {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+    
+    .avatar-placeholder {
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary);
+        color: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        border: 2px solid var(--accent);
+    }
+    
+    .avatar-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: none; /* Hidden until you add images */
+    }
+    
+    .leader-info {
+        flex-grow: 1;
+    }
+    
+    .leader-name {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+    
+    .leader-title {
+        color: var(--accent);
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .leader-social {
+        display: flex;
+        gap: 15px;
+    }
+    
+    .social-link {
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+    }
+    
+    .social-link:hover {
+        color: var(--accent);
+    }
+    
+    @media (max-width: 600px) {
+        .leadership-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+        }
+        
+        .leader-card {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .leader-social {
+            justify-content: center;
+        }
+    }
+</style>
+
+    <!-- Engineering Principles Section -->
+    <section class="engineering-principles">
+        <div class="container">
+            <h2 class="section-title">Our Engineering Principles</h2>
+            <p class="section-subtitle">
+                The foundational beliefs that guide every system we design and build
+            </p>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">🧮</div>
+                    <h3 class="principle-title">Mathematical Rigor</h3>
+                    <p class="principle-desc">
+                        We apply formal methods and computer science fundamentals to create 
+                        systems with provable properties, not just hopeful implementations.
+                    </p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">⚖️</div>
+                    <h3 class="principle-title">Tradeoff Awareness</h3>
+                    <p class="principle-desc">
+                        Every architectural decision involves tradeoffs. We make these explicit 
+                        and document them thoroughly for future maintainers.
+                    </p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">🛡️</div>
+                    <h3 class="principle-title">Failure Anticipation</h3>
+                    <p class="principle-desc">
+                        Systems fail in unexpected ways. We design for failure modes first, 
+                        success paths second.
+                    </p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">📈</div>
+                    <h3 class="principle-title">Measurable Quality</h3>
+                    <p class="principle-desc">
+                        Quality attributes must be quantified - from performance metrics to 
+                        reliability SLOs. If you can't measure it, you can't improve it.
+                    </p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">🧪</div>
+                    <h3 class="principle-title">Empirical Validation</h3>
+                    <p class="principle-desc">
+                        Architectural decisions must be validated through prototyping and 
+                        measurement, not just theoretical analysis.
+                    </p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-icon">📚</div>
+                    <h3 class="principle-title">Knowledge Sharing</h3>
+                    <p class="principle-desc">
+                        We document not just what we built, but why we built it that way - 
+                        ensuring long-term maintainability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="about-cta">
+        <div class="container">
+            <h2 class="section-title">Engineer With Us</h2>
+            <p class="section-subtitle">
+                Whether you're facing a complex technical challenge or want to build 
+                something new the right way, we'd love to discuss your project.
+            </p>
+            <a href="contact.html" class="btn btn-secondary">Start a Technical Discussion</a>
+        </div>
+    </section>
+
+
+
+    
+    <footer class="tech-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <!-- Column 1: Brand Info -->
+            <div class="footer-brand">
+                <a href="/" class="footer-logo">
+                    <div class="logo-icon">
+                        <div class="logo-particle"></div>
+                        <div class="logo-particle"></div>
+                        <div class="logo-particle"></div>
+                    </div>
+                    <span>TechAlchemist</span>
+                </a>
+                <p class="footer-tagline">Transforming ideas into digital gold through engineering excellence</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-links">
+                <h3 class="footer-heading">Navigate</h3>
+                <ul>
+                    <li><a href="home.html" class="footer-link">Home</a></li>
+                    <li><a href="services.html" class="footer-link">Our Services</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    <li><a href="about.html" class="footer-link">About Us</a></li>
+                    
+                </ul>
+            </div>
+
+            <!-- Column 3: Services -->
+            <div class="footer-links">
+                <h3 class="footer-heading">Expertise</h3>
+                <ul>
+                    <li><a href="#" class="footer-link">System Architecture</a></li>
+                    <li><a href="#" class="footer-link">Performance Engineering</a></li>
+                    <li><a href="#" class="footer-link">Security Solutions</a></li>
+                    <li><a href="#" class="footer-link">Technical Consulting</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Contact -->
+            <div class="footer-contact">
+                <h3 class="footer-heading">Get in Touch</h3>
+                <address class="contact-info">
+                    <a href="mailto:hello@techalchemist.dev" class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        hello@techalchemist.com
+                    </a>
+                    <a href="tel:+254700123456" class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        +254 700 123456
+                    </a>
+                    <span class="contact-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        Nairobi, Kenya
+                    </span>
+                </address>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2023 TechAlchemist Solutions. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#" class="legal-link">Privacy Policy</a>
+                <a href="#" class="legal-link">Terms of Service</a>
+                <a href="#" class="legal-link">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* Footer Styles */
+    .tech-footer {
+        background: var(--secondary);
+        color: var(--text);
+        padding: 4rem 0 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    /* Brand Column */
+    .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text);
+        text-decoration: none;
+    }
+
+    .footer-tagline {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-link {
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+        padding: 0.5rem;
+        display: flex;
+    }
+
+    .social-link:hover {
+        color: var(--accent);
+        transform: translateY(-3px);
+    }
+
+    /* Links Columns */
+    .footer-links h3,
+    .footer-contact h3 {
+        color: var(--text);
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+    }
+
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--accent);
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .footer-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        position: relative;
+    }
+
+    .footer-link:hover {
+        color: var(--accent);
+        padding-left: 8px;
+    }
+
+    .footer-link::before {
+        content: '→';
+        position: absolute;
+        left: -15px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .footer-link:hover::before {
+        left: -10px;
+        opacity: 1;
+    }
+
+    /* Contact Column */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-style: normal;
+    }
+
+    .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: 0.95rem;
+    }
+
+    .contact-link:hover {
+        color: var(--accent);
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(100, 255, 218, 0.1);
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .copyright {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .legal-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .legal-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+    .legal-link:hover {
+        color: var(--accent);
+    }
+
+    /* Animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            grid-column: span 2;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .legal-links {
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-brand {
+            grid-column: span 1;
+        }
+    }
+</style>
+</body>
+</html>
